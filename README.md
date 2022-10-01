@@ -1,5 +1,5 @@
 # Dynamic-Dictionary
-A dictionary that uses dynamic memory allocation
+A dictionary that uses dynamic memory allocation\n
 first example - changing the translations of a specific key:
 
 <img width="275" alt="Dynamic-Dictionary 3" src="https://user-images.githubusercontent.com/112869076/193420707-ca1a4a14-ef9f-4d02-b56f-69890da1e679.png">
