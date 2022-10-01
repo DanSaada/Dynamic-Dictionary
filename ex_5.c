@@ -4,8 +4,6 @@
  * @since 06/12/2021
 ***********/
 
-#define _CRT_SECURE_NO_WARNINGS
-
 #include <stdio.h>
 #include <math.h>
 #include <stdlib.h>
@@ -31,6 +29,26 @@ typedef struct {
 	int numOfLanguages;
 	Word* wordList;
 } Dictionary;
+
+char* getUserInput();
+char** getStr(char* newUserInput, int* counter, char** str, char* choose);
+Dictionary createNewDic();
+Dictionary* addNewDict(Dictionary* dictionaries, int numOfDictionaries);
+void printDic(Dictionary* dictionaries, int numOfDictionaries, int* dicChoose);
+Word createWord(Dictionary* dictionaries, int numOfDictionaries, int* dicChoose, int* isTranslationInput);
+void addWord(int* numOfWords, Dictionary* dictionaries, int numOfDictionaries, int* dicChoose);
+int getAnswer();
+void freeStringTable(char** table, int numOfRows);
+Word* freeWord(Word* wordToFree, Dictionary* dictionaries, int numOfLanguages);
+void freeWord2(Word* word, int numOfTranslations);
+Dictionary* freeDict(Dictionary* dictionaries, int numOfDictionaries, int* dicChoose);
+void deleteWord(Dictionary* dictionaries, int numOfDictionaries, int* dicChoose);
+void printWord(Word* wordToPrint, int* dicChoose, Dictionary* dictionaries);
+int findWord(Dictionary* dictionaries, int numOfDictionaries, int* dicChoose);
+Dictionary* deleteDic(Dictionary* dictionaries, int* numOfDictionaries, int* dicChoose);
+void exitProgram(Dictionary* dictionaries, int numOfDictionaries, int* dicChoose);
+void printMenu();
+void menu();
 
 /******************
 * Function Name: getUserInput
@@ -252,7 +270,7 @@ void printDic(Dictionary* dictionaries, int numOfDictionaries, int* dicChoose) {
 * Function Name: createWord
 * Input: Dictionary* dictionaries, int numOfDictionaries, int* dicChoose
 * Output: Word
-* Function Operation: This function is used by the user to add words to existing dictionaries.
+* Function Operation: This function is used by the user to create words and its translations to existing dictionaries.
 *					  The user chooses which dictionary he wants to add a word to, Then inserts the word and its
 					  translation (when separated by commas) in the order in which the languages ​​are arranged in the
 					  specific dictionary chosen. if the user made a mistake, such as forgot to provide one of the
@@ -300,6 +318,14 @@ Word createWord(Dictionary* dictionaries, int numOfDictionaries, int* dicChoose,
 	return word;
 }
 
+/******************
+* Function Name: addWord
+* Input: int* numOfWords, Dictionary* dictionaries, int numOfDictionaries, int* dicChoose
+* Output: None
+* Function Operation: This function adds words after being created to existing dictionaries.
+*					  If The user enters a word that its key already exists in this dictionary, the program will ask
+                      him if he wants to revalue the word's translations, and save the new translations.
+* ******************/
 void addWord(int* numOfWords, Dictionary* dictionaries, int numOfDictionaries, int* dicChoose) {
 	int isTranslationInput = 0;
 	Word* words = NULL;
