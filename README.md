@@ -8,4 +8,5 @@ First example - changing the translations of a specific key:
 
 Second example - user mistakes and handling:
 
-<img width="367" alt="Dynamic-Dictionary 5" src="https://user-images.githubusercontent.com/112869076/193421074-05112fbb-40e2-4367-972d-b2340bffacd5.png">
+<img width="419" alt="Dynamic-Dictionary 5" src="https://user-images.githubusercontent.com/112869076/193421246-ddc2819d-5120-4219-8fe1-e4c382fc75b3.png">
+
